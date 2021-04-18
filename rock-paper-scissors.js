@@ -1,25 +1,46 @@
-function computerPlay() {
-    let options = ["rock","paper","scissors"]; 
-    let rand = Math.floor(Math.random()*3);
-    return options[rand];
-}
-function playRound(playerSelection, computerSelection) {
-    if (computerSelection === playerSelection) {
-        alert(computerSelection + " & " + playerSelection+"! So it's a TIE!");
+function game() 
+{
+    let player = 0, computer = 0;
+    function computerPlay() {
+        let options = ["rock","paper","scissors"]; 
+        let rand = Math.floor(Math.random()*3);
+        return options[rand];
     }
-    else if (computerSelection === "rock" && playerSelection === "scissors") {
-        alert("Rock beats Scissors! Computer Wins!");
+    function playRound(playerSelection, computerSelection) 
+    {
+        if (computerSelection === playerSelection) 
+        {
+            return computerSelection + " & " + playerSelection+"! So it's a TIE!";
+        }
+        else if (computerSelection === "rock" && playerSelection === "scissors") {
+            computer +=1;
+             return "Rock beats Scissors! Computer Wins!";
+        }
+        else if (computerSelection === "paper" && playerSelection === "rock") {
+            computer +=1;
+            return "Paper beats Rock! Computer Wins!";
+        }
+        else if (computerSelection === "scissors" && playerSelection === "paper") {
+            computer +=1;
+            return "Scissors beats Paper! Computer Wins!";
+        }
+        else {
+            player += 1;
+            return playerSelection + " beats " + computerSelection + "! " + "Human Wins!";
+        }
     }
-    else if (computerSelection === "paper" && playerSelection === "rock") {
-        alert("Paper beats Rock! Computer Wins!");
+    for (let i = 0; i < 5; i++) 
+    {
+        const playerSelection = prompt("Enter rock/paper/scissors:","scissors").toLowerCase();
+        const computerSelection = computerPlay();
+        let res = playRound(playerSelection, computerSelection);
+        console.log(res);
+        console.log("Score is Human: " + player + " & Computer: " + computer);
     }
-    else if (computerSelection === "scissors" && playerSelection === "paper") {
-        alert("Scissors beats Paper! Computer Wins!");
-    }
+    if(player === computer) console.log("Its a TIE!");
     else {
-        alert(playerSelection + " beats " + computerSelection + "! " + "Player Wins!");
+        let winner = player>computer?"Human is the winner!":"Computer is the winner!";
+        console.log(winner);
     }
 }
-const playerSelection = prompt("Enter rock/paper/scissors:","scissors").toLowerCase();
-const computerSelection = computerPlay();
-playRound(playerSelection, computerSelection);
+game();
