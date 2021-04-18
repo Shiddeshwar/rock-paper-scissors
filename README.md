@@ -1,1 +1,1 @@
-18 Apr ==> Doesn't have GUI. Runs on console
+NO GUI. Runs on BROWSER CONSOLE.
