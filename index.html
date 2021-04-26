@@ -2,8 +2,29 @@
 <html>
     <head>
         <title>Rock Paper Scissors</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div class = "score">
+            <div>
+                <div style="margin-left: 4rem;" class="header">Human</div>
+                <div class = 'box box1' id = 'human'>0</div>
+            </div>
+            <div></div>
+            <div>
+                <div style="margin-left: 4rem;" class="header">Computer</div>
+                <div  class = 'box box2' id = 'computer'>0</div>
+            </div>
+        </div>
+        <div id = 'round' class="header">Rounds</div>
+        <div id = "Commentary" class = 'commentary'></div>
+        <div class="keys">
+            <button id="rock" class="key">Rock</button>
+            <button id="paper" class="key">Paper</button>
+            <button id="scissors" class="key">Scissors</button>
+        </div>
         <script src="rock-paper-scissors.js"></script>
     </body>
 </html>
